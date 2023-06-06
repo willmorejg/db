@@ -61,8 +61,7 @@ public class RunCommand implements Callable<Integer> {
     @Option(
             names = {"-d", "--template-directory"},
             paramLabel = "TEMPLATE_DIRECTORY",
-            description = "The FreeMarker Template directory location",
-            required = true)
+            description = "The FreeMarker Template directory location")
     private File templateDirectory;
 
     @Option(
@@ -89,15 +88,13 @@ public class RunCommand implements Callable<Integer> {
     @Option(
             names = {"-r", "--db-username"},
             paramLabel = "DATASOURCE_USERNAME",
-            description = "The data source username",
-            required = true)
+            description = "The data source username")
     private String dbUsername;
 
     @Option(
             names = {"-p", "--db-password"},
             paramLabel = "DATASOURCE_PASSWORD",
-            description = "The data source password",
-            required = true)
+            description = "The data source password")
     private String dbPassword;
 
     @Option(
@@ -123,14 +120,20 @@ public class RunCommand implements Callable<Integer> {
 
             final Database database = databaseMetaDataMappingService.map(ds, databaseName);
             tableMetaDataMappingService.map(ds, database);
-            freeMarker.setDirectoryForTemplateLoading(templateDirectory);
+
+            if (templateDirectory != null && templateDirectory.exists()) {
+                freeMarker.setDirectoryForTemplateLoading(templateDirectory);
+            }
+
             final Template tmp = freeMarker.getTemplate(templateFilename);
+
             try (final FileWriter fw = new FileWriter(outputFilename); ) {
                 tmp.process(freemarkerProcessingService.createRoot(database), fw);
             }
+
             result = 0;
         } catch (Exception e) {
-            log.error("Error: ", e.getMessage());
+            log.error("Error: ", e);
         }
 
         return result;
