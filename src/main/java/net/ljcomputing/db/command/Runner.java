@@ -31,13 +31,21 @@ import picocli.CommandLine.IFactory;
 @Slf4j
 public class Runner implements CommandLineRunner, ExitCodeGenerator {
 
-    // auto-configured to inject PicocliSpringFactory
+    /** The injected PicocliSpringFactory. */
     private final IFactory factory;
 
+    /** The run command. */
     private final RunCommand runCommand;
 
+    /** The exit code of the CLI application. */
     private int exitCode;
 
+    /**
+     * Constructor.
+     *
+     * @param factory
+     * @param runCommand
+     */
     public Runner(IFactory factory, RunCommand runCommand) {
         this.factory = factory;
         this.runCommand = runCommand;

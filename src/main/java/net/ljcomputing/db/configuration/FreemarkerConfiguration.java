@@ -27,8 +27,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactory;
 
+/** FreeMarker Configuration. */
 @Configuration
 public class FreemarkerConfiguration {
+    /**
+     * The FreeMarker Configuration bean.
+     *
+     * @param freeMarkerConfigurationFactory
+     * @return
+     */
     @Bean
     public freemarker.template.Configuration freeMarker(
             @Autowired FreeMarkerConfigurationFactory freeMarkerConfigurationFactory) {

@@ -20,6 +20,7 @@ James G Willmore - LJ Computing - (C) 2023
 */
 package net.ljcomputing.db.model;
 
+/** Enum of Database Metadata values. */
 public enum DatabaseMetadataValues {
     TABLE_CATALOG,
     TABLE_SCHEMA,

@@ -28,6 +28,7 @@ import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
+/** A Database Table Model. */
 @Data
 @ToString
 @EqualsAndHashCode

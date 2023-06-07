@@ -110,6 +110,12 @@ public enum SqlTypeMapping {
         return result;
     }
 
+    /**
+     * Convert the given type into a simple class name.
+     *
+     * @param type
+     * @return
+     */
     public static String toSimpleClassName(int type) {
         Class<?> result = toClass(type);
         return result.getSimpleName();

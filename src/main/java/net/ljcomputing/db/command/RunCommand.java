@@ -37,6 +37,7 @@ import org.springframework.stereotype.Component;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
+/** The picocli command used to process the Database. */
 @Component
 @Command(
         name = "RunCommand",
@@ -45,12 +46,19 @@ import picocli.CommandLine.Option;
         version = "db 0.0.1")
 @Slf4j
 public class RunCommand implements Callable<Integer> {
-    // @Autowired private DataSource dataSource;
+    /** FreeMarker Configuration. */
     @Autowired private Configuration freeMarker;
+
+    /** Database MetaData mapping Service. */
     @Autowired private DatabaseMetaDataMappingService databaseMetaDataMappingService;
+
+    /** Database Table MetaData mapping Service. */
     @Autowired private TableMetaDataMappingService tableMetaDataMappingService;
+
+    /** FreeMarker processing Service. */
     @Autowired private FreemarkerProcessingService freemarkerProcessingService;
 
+    /** Database name. */
     @Option(
             names = {"-n", "--database-name"},
             paramLabel = "DATABASE_NAME",
@@ -58,12 +66,14 @@ public class RunCommand implements Callable<Integer> {
             required = true)
     private String databaseName;
 
+    /** FreeMarker Template directory location. */
     @Option(
             names = {"-d", "--template-directory"},
             paramLabel = "TEMPLATE_DIRECTORY",
             description = "The FreeMarker Template directory location")
     private File templateDirectory;
 
+    /** FreeMarker Template file to use for processing Database schema. */
     @Option(
             names = {"-t", "--template-filename"},
             paramLabel = "TEMPLATE_FILE",
@@ -71,6 +81,7 @@ public class RunCommand implements Callable<Integer> {
             required = true)
     private String templateFilename;
 
+    /** Output file location. */
     @Option(
             names = {"-o", "--output-filename"},
             paramLabel = "OUTPUT_FILE",
@@ -78,6 +89,7 @@ public class RunCommand implements Callable<Integer> {
             required = true)
     private String outputFilename;
 
+    /** The DataSource JDBC URL used to connect to the Database to prcess. */
     @Option(
             names = {"-u", "--db-url"},
             paramLabel = "DATASOURCE_URL",
@@ -85,18 +97,21 @@ public class RunCommand implements Callable<Integer> {
             required = true)
     private String dbUrl;
 
+    /** The DataSource username. */
     @Option(
             names = {"-r", "--db-username"},
             paramLabel = "DATASOURCE_USERNAME",
             description = "The data source username")
     private String dbUsername;
 
+    /** The DataSource password. */
     @Option(
             names = {"-p", "--db-password"},
             paramLabel = "DATASOURCE_PASSWORD",
             description = "The data source password")
     private String dbPassword;
 
+    /** The DataSource driver class (jar must be in classpath). */
     @Option(
             names = {"-c", "--db-classname"},
             paramLabel = "DATASOURCE_DRIVER_CLASS",

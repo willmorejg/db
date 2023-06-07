@@ -27,11 +27,11 @@ import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
+/** Database Column Model. */
 @Data
 @ToString
 @EqualsAndHashCode
 @RequiredArgsConstructor
-// @Builder
 public class Column {
     /** The name. */
     @NotNull private final String name;

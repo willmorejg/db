@@ -28,14 +28,23 @@ import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
+/** Database Model. */
 @Data
 @ToString
 @EqualsAndHashCode
 @RequiredArgsConstructor
 public class Database {
+    /** The name of the Database. */
     @NotNull private final String name;
+
     private List<Table> tables = new ArrayList<>();
 
+    /**
+     * Add the given {@link net.ljcomputing.db.model.Table Table} to the {@link java.util.List List}
+     * of {@link net.ljcomputing.db.model.Table Tables} associated with the Database.
+     *
+     * @param table
+     */
     public void addTable(final Table table) {
         tables.add(table);
     }
