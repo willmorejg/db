@@ -1,4 +1,6 @@
-app:
+application:
+    title: Database Parsing using FreeMarker
+    version: 0.0.1
     output-directory: classpath:out/
     format:
         js:
