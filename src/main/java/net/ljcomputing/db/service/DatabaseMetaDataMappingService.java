@@ -23,6 +23,15 @@ package net.ljcomputing.db.service;
 import javax.sql.DataSource;
 import net.ljcomputing.db.model.Database;
 
+/** Interface defining a Database MetaData Mapping Service. */
 public interface DatabaseMetaDataMappingService {
+    /**
+     * Map the {@link net.ljcomputing.db.model.Database Database} of the given {@link javax.sql.DataSource DataSource}.
+     * 
+     * @param dataSource
+     * @param dbName
+     * @return
+     * @throws Exception
+     */
     Database map(DataSource dataSource, String dbName) throws Exception;
 }

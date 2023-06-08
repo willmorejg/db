@@ -30,6 +30,7 @@ import net.ljcomputing.db.service.FreemarkerProcessingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/** Implementation of a FreeMarker processing Service. */
 @Service
 public class FreemarkerProcessingServiceImpl implements FreemarkerProcessingService {
     @Autowired private Configuration freeMarker;

@@ -23,8 +23,15 @@ package net.ljcomputing.db;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/** The main class of the application. */
 @SpringBootApplication
 public class DbApplication {
+    
+    /** 
+     * Main entry point of application.
+     * 
+     * @param args
+     */
     public static void main(String... args) {
         SpringApplication.run(DbApplication.class, args);
     }

@@ -37,6 +37,7 @@ public class Database {
     /** The name of the Database. */
     @NotNull private final String name;
 
+    /** The database tables. */
     private List<Table> tables = new ArrayList<>();
 
     /**

@@ -32,7 +32,7 @@ import net.ljcomputing.db.service.DatabaseMetaDataMappingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.stereotype.Service;
-
+/** Implementation of a Database Mapping Service. */
 @Service
 @Slf4j
 public class DatabaseMetaDataMappingServiceImpl implements DatabaseMetaDataMappingService {

@@ -38,7 +38,7 @@ public interface FreemarkerProcessingService {
 
     /**
      * Create a Map of key / value pairs used by the FreeMarker Template.
-     * 
+     *
      * @param database
      * @return
      */

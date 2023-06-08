@@ -31,6 +31,7 @@ import net.ljcomputing.db.model.Table;
 import net.ljcomputing.db.service.TableMetaDataMappingService;
 import org.springframework.stereotype.Service;
 
+/** Implementation of a Table MetaData Mapping Service. */
 @Service
 public class TableMetaDataMappingServiceImpl implements TableMetaDataMappingService {
 
