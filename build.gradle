@@ -98,11 +98,17 @@ javadoc {
 }
 
 doxygen {
-  source 'src/main/java'
-  project_name 'Database Inspector'
-  generate_latex true
-  generate_html true
-  optimize_output_java true
+  source new File(projectDir, 'src/main/java')
+   project_name 'Database Inspector'
+   optimize_output_java true
+   javadoc_autobrief true
+   extract_private true
+   extract_static true
+   generate_rtf true
+   generate_latex true
+   generate_html true
+   generate_treeview true
+   treeview_width 100
 }
 
 test {
