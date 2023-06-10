@@ -56,7 +56,7 @@ java {
 }
  
 tasks.withType(JavaCompile) {
-  dependsOn spotlessApply
+  //dependsOn spotlessApply
   options.encoding = 'UTF-8'
 }
 
@@ -133,12 +133,12 @@ jacocoTestCoverageVerification {
 
 sonarqube {
     properties {
-		property "sonar.projectKey", "net.ljcomputing.db"
-		property "sonar.host.url", "http://localhost:9005"
-		property "sonar.login", "sqp_0ae93b405c1168104bfff825883bb7e251d5cdeb"
-		property 'sonar.verbose', 'true'
-		property 'sonar.sourceEncoding', 'UTF-8'
-	  property 'sonar.exclusions', 'build/generated-src/**'
+	property "sonar.projectKey", "net.ljcomputing.db"
+	property "sonar.host.url", "http://localhost:9005"
+	property "sonar.login", "sqp_0ae93b405c1168104bfff825883bb7e251d5cdeb"
+	property 'sonar.verbose', 'true'
+	property 'sonar.sourceEncoding', 'UTF-8'
+        property 'sonar.exclusions', 'build/generated-src/**'
   }
 }
 
