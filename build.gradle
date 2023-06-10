@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.12'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
-	id 'com.diffplug.spotless' version '6.19.0'
+	//id 'com.diffplug.spotless' version '6.19.0'
 	id 'org.ysb33r.doxygen' version '0.7.0'
 	id "org.sonarqube" version "3.4.0.2513"
 	// id "org.sonarqube" version "4.2.0.3129"
@@ -79,7 +79,7 @@ jar {
         )
     }
 }
-
+/*
 spotless {
   java {
     targetExclude("build/**")
@@ -92,7 +92,7 @@ spotless {
     googleJavaFormat('1.15.0').aosp().reflowLongStrings().groupArtifact('com.google.googlejavaformat:google-java-format')
   }
 }
-
+*/
 javadoc {
   exclude("build/generated/sources/**/*.java")
 	options.memberLevel = JavadocMemberLevel.PRIVATE
