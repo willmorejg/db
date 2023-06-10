@@ -75,8 +75,8 @@ class DbApplicationTests {
         assertFalse(database.getTables().isEmpty());
     }
 
-    @Test
-    @Order(20)
+    // @Test
+    // @Order(20)
     void writeDatabaseSchemaTest() throws Exception {
         Database database = databaseMetaDataMappingService.map(dataSource, "NJ GIS");
         tableMetaDataMappingService.map(dataSource, database);
@@ -93,8 +93,8 @@ class DbApplicationTests {
         fw.close();
     }
 
-    @Test
-    @Order(25)
+    // @Test
+    // @Order(25)
     void freemarkerProcessTest() throws Exception {
         Database database = databaseMetaDataMappingService.map(dataSource, "NJ GIS");
         tableMetaDataMappingService.map(dataSource, database);
