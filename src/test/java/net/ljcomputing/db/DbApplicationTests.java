@@ -62,7 +62,7 @@ class DbApplicationTests {
     void contextLoads() throws Exception {
         assertNotNull(dataSource);
         assertNotNull(freeMarker);
-        assertNotNull(freeMarker.getTemplate("html.ftl"));
+        assertNotNull(freeMarker.getTemplate("json.ftl"));
     }
 
     @Test
@@ -86,7 +86,7 @@ class DbApplicationTests {
         Map<String, Object> root = new HashMap<>();
         root.put("database", database);
         StringWriter writer = new StringWriter();
-        freeMarker.getTemplate("html.ftl").process(root, writer);
+        freeMarker.getTemplate("json.ftl").process(root, writer);
         log.debug("writer: {}", writer.toString());
         FileWriter fw = new FileWriter(database.getName() + ".html");
         fw.write(writer.toString());
