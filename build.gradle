@@ -22,12 +22,12 @@ configurations {
 }
 
 repositories {
-    mavenLocal()
+    // mavenLocal()
     
-    maven {
-        url = uri('http://localhost:8081/repository/maven-central/')
-        allowInsecureProtocol = true
-    }
+    // maven {
+    //     url = uri('http://localhost:8081/repository/maven-central/')
+    //     allowInsecureProtocol = true
+    // }
 
     mavenCentral()
 }
