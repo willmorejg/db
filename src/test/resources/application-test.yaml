@@ -19,13 +19,18 @@ application:
             template: xmlTemplate.ftl
             extension: xml
 spring:
+  sql:
+    init:
+      mode: always
+      schema-locations:
+      - classpath:schema.sql
   freemarker:
     suffix: .ftl
     cache: false
     template-loader-path:
       - classpath:/templates/
   datasource:
-    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
-    username: sa
-    password: sa
-    driver-class-name: org.h2.Driver
+    url: jdbc:tc:postgresql:14.8:///test
+    initialization-mode: always
+    schema:
+    - classpath:schema.sql
