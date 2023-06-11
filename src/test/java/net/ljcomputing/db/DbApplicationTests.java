@@ -110,20 +110,20 @@ class DbApplicationTests {
     void cliTest() throws Exception {
         DbApplication.main(
                 "-n",
-                "Contacts",
+                "Test",
                 "-o",
-                "cli-tst.html",
+                "tst.json",
                 "-d",
-                "/home/jim/templates/",
+                "../src/main/resources/templates/",
                 "-t",
-                "html.ftl",
+                "json.ftl",
                 "-u",
-                "jdbc:postgresql://localhost/contacts",
+                "jdbc:h2:mem:db;DB_CLOSE_DELAY=-1",
                 "-r",
-                "jim",
+                "sa",
                 "-p",
-                "password",
+                "sa",
                 "-c",
-                "org.postgresql.Driver");
+                "org.h2.Driver");
     }
 }
