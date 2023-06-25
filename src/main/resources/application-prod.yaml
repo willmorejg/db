@@ -24,8 +24,8 @@ spring:
     cache: false
     template-loader-path:
       - classpath:/templates/
-  datasource:
-    url: jdbc:postgresql://localhost/nj_gis
-    username: jim
-    password: password
-    driver-class-name: org.postgresql.Driver
+#   datasource:
+#     url: jdbc:postgresql://localhost/nj_gis
+#     username: jim
+#     password: password
+#     driver-class-name: org.postgresql.Driver
