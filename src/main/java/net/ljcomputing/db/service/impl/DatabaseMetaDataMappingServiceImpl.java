@@ -24,12 +24,12 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import javax.sql.DataSource;
-import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 import net.ljcomputing.db.model.Database;
 import net.ljcomputing.db.model.DatabaseMetadataValues;
 import net.ljcomputing.db.model.Table;
 import net.ljcomputing.db.service.DatabaseMetaDataMappingService;
+import org.springframework.stereotype.Service;
 
 /** Implementation of a Database Mapping Service. */
 @Service

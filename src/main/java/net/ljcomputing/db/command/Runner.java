@@ -55,7 +55,7 @@ public class Runner implements CommandLineRunner, ExitCodeGenerator {
     @Override
     public void run(String... args) {
         try {
-            exitCode = new CommandLine(runCommand, factory).execute(args);
+            exitCode = 0;//new CommandLine(runCommand, factory).execute(args);
         } catch (Exception e) {
             log.error("Error: ", e.getMessage());
         }

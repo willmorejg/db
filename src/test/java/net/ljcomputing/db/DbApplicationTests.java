@@ -30,6 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.sql.DataSource;
 import net.ljcomputing.db.model.Database;
+import net.ljcomputing.db.model.Table;
 import net.ljcomputing.db.service.DatabaseMetaDataMappingService;
 import net.ljcomputing.db.service.FreemarkerProcessingService;
 import net.ljcomputing.db.service.TableMetaDataMappingService;
@@ -127,6 +128,23 @@ class DbApplicationTests {
         assertFalse(database.getTables().isEmpty());
 
         freemarkerProcessingService.process(database, "html.ftl", database.getName() + ".htm");
+    }
+
+    @Test
+    @Order(27)
+    void freemarkerProcessTest2() throws Exception {
+        Database database = databaseMetaDataMappingService.map(dataSource, "Test");
+        tableMetaDataMappingService.map(dataSource, database);
+
+        log.debug("database: {}", database);
+
+        assertNotNull(database.getName());
+        assertFalse(database.getTables().isEmpty());
+
+        for (final Table table : database.getTables()) {
+            freemarkerProcessingService.process(
+                    table, "table-html.ftl", "Table-" + table.getName() + ".htm");
+        }
     }
 
     // TODO - implement

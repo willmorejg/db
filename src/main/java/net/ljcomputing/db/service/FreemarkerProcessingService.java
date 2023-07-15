@@ -22,6 +22,7 @@ package net.ljcomputing.db.service;
 
 import java.util.Map;
 import net.ljcomputing.db.model.Database;
+import net.ljcomputing.db.model.Table;
 
 /** The Interface defining a FreeMarker processing Service. */
 public interface FreemarkerProcessingService {
@@ -37,10 +38,29 @@ public interface FreemarkerProcessingService {
     void process(Database database, String template, String outputFile) throws Exception;
 
     /**
+     * Process the given FreeMarker Template using the given Table as input and write the result to
+     * the given output file.
+     *
+     * @param table
+     * @param template
+     * @param outputFile
+     * @throws Exception
+     */
+    void process(Table table, String template, String outputFile) throws Exception;
+
+    /**
      * Create a Map of key / value pairs used by the FreeMarker Template.
      *
      * @param database
      * @return
      */
     Map<String, Object> createRoot(Database database);
+
+    /**
+     * Create a Map of key / value pairs used by the FreeMarker Template.
+     *
+     * @param table
+     * @return
+     */
+    Map<String, Object> createRoot(Table table);
 }

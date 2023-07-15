@@ -26,6 +26,7 @@ import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Map;
 import net.ljcomputing.db.model.Database;
+import net.ljcomputing.db.model.Table;
 import net.ljcomputing.db.service.FreemarkerProcessingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,9 +49,28 @@ public class FreemarkerProcessingServiceImpl implements FreemarkerProcessingServ
 
     /** {@inheritDoc} */
     @Override
+    public void process(final Table table, final String template, final String outputFile)
+            throws Exception {
+        try (FileWriter writer = new FileWriter(outputFile); ) {
+            final Map<String, Object> root = createRoot(table);
+            final Template tmp = freeMarker.getTemplate(template);
+            tmp.process(root, writer);
+        }
+    }
+
+    /** {@inheritDoc} */
+    @Override
     public Map<String, Object> createRoot(final Database database) {
         final Map<String, Object> root = new HashMap<>();
         root.put("database", database);
+        return root;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public Map<String, Object> createRoot(final Table table) {
+        final Map<String, Object> root = new HashMap<>();
+        root.put("table", table);
         return root;
     }
 }

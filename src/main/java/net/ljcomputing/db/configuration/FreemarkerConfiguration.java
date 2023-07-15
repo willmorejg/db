@@ -22,6 +22,7 @@ package net.ljcomputing.db.configuration;
 
 import freemarker.template.TemplateException;
 import java.io.IOException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,6 +30,7 @@ import org.springframework.ui.freemarker.FreeMarkerConfigurationFactory;
 
 /** FreeMarker Configuration. */
 @Configuration
+@Slf4j
 public class FreemarkerConfiguration {
     /**
      * The FreeMarker Configuration bean.
@@ -44,7 +46,7 @@ public class FreemarkerConfiguration {
                     freeMarkerConfigurationFactory.createConfiguration();
             return cfg;
         } catch (IOException | TemplateException e) {
-            e.printStackTrace();
+            log.error("ERROR: ", e);
         }
 
         return null;
